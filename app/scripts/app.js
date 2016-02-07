@@ -28,6 +28,30 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/landing', {
+        templateUrl: 'views/landing.html',
+        controller: 'LandingCtrl'
+      })
+      .when('/writepost', {
+        templateUrl: 'views/writepost.html',
+        controller: 'WritepostCtrl'
+      })
+      .when('/addtags', {
+        templateUrl: 'views/addtags.html',
+        controller: 'AddtagsCtrl'
+      })
+      .when('/postcomplete', {
+        templateUrl: 'views/postcomplete.html',
+        controller: 'PostcompleteCtrl'
+      })
+      .when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
