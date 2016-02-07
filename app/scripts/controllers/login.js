@@ -8,10 +8,16 @@
  * Controller of the barnacleApp
  */
 angular.module('barnacleApp')
-  .controller('LoginCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LoginCtrl', function ($scope, $location) {
+    
+    $scope.fbLogin = function(){
+      $location.path('landing');
+    }
+    $scope.twitterLogin = function(){
+      $location.path('landing');
+    }
+    $scope.tumblrLogin = function(){
+      $location.path('landing');
+    }
+
   });
