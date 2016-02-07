@@ -8,10 +8,11 @@
  * Controller of the barnacleApp
  */
 angular.module('barnacleApp')
-  .controller('AddtagsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('AddtagsCtrl', function ($scope, $location) {
+    
+    $scope.finish = function(){
+      console.log('finish!');
+      $location.path('/postcomplete');
+    }
+
   });

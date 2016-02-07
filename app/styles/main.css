@@ -40,19 +40,68 @@ body {
       cursor: pointer;
     }
     .addEntryIconSmall{
-      padding: 1em;
+      background: url('../images/addEntry.svg') no-repeat center;
+      /*position: absolute;*/
+      padding: 2em;
+      background-size: 32px;
     }
     .addEntryIconLarge{
-      /*width: 9em;*/
-      /*height: 9em;*/
       padding: 4em;
+      background-size: 4em;
+      margin: 0 auto;
     }
     .profile-gray{
       background: url('../images/profile-gray.svg') no-repeat center;
-      padding: 2em;
-      padding-top: 0em;
+      padding: 1em;
+      /*padding-top: 0em;*/
+      background-size: 16px;
     }
     .profile-orange{
       background: url('../images/profile-orange.svg') no-repeat center;
       padding: 1em;
+      background-size: 16px;
     }
+    .completeCheck{
+      background: url('../images/completeCheck.svg') no-repeat center;
+      padding: 4em;
+      background-size: 5em;
+    }
+
+
+.contentContainer{
+  margin: 10px;
+}
+.continueFlow{
+  color: #377CC4;
+}
+
+
+/* Pages */
+  
+  /* Post Complete */
+    #postComplete{
+      margin: 0 auto;
+      text-align: center;
+      margin-top:30%;
+    }
+    #postComplete > div:nth-of-type(1){
+      /*overflow: hidden;*/
+      margin: 4em;
+    }
+    #postComplete > div:nth-of-type(2){
+      height: 3em;
+      padding-top: 1em;
+    }
+
+  /* Profile */
+    #profile .bar h2{
+      display: inline-block;
+      font-size: 14px;
+      margin: 10px;
+      margin-left: 5em;
+    }
+
+
+
+
+

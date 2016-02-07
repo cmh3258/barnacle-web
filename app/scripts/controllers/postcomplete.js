@@ -8,10 +8,9 @@
  * Controller of the barnacleApp
  */
 angular.module('barnacleApp')
-  .controller('PostcompleteCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('PostcompleteCtrl', function ($scope, $location) {
+
+    $scope.writepost = function(){
+      $location.path('/writepost');
+    }
   });

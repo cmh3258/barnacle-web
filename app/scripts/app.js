@@ -38,7 +38,8 @@ angular
       })
       .when('/writepost', {
         templateUrl: 'views/writepost.html',
-        controller: 'WritepostCtrl'
+        controller: 'WritepostCtrl',
+        controllerAs: 'vm'
       })
       .when('/addtags', {
         templateUrl: 'views/addtags.html',

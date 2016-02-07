@@ -1,1 +1,13 @@
-<p>This is the writepost view.</p>
+
+<ion-header-bar>
+  <button class="button button-icon"><viewprofile></viewprofile></button>
+  <h1 class="title">{{vm.currentDate | date:'medium'}}</h1>
+  <button class="button button-icon" ng-click="selectCategory(vm.writeContenta)" ng-disabled="vm.writeContenta.length < 10" ng-class="vm.writeContenta.length >= 10 ? 'continueFlow':''">done</button>
+</ion-header-bar>
+
+<ion-content>
+  <main class="contentContainer">
+    <textarea ng-model="vm.writeContenta" placeholder="What's on your mind..."></textarea>
+  </main>
+</ion-content>
+
