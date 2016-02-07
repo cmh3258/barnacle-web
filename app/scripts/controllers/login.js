@@ -8,10 +8,11 @@
  * Controller of the barnacleApp
  */
 angular.module('barnacleApp')
-  .controller('LoginCtrl', function ($scope, $location) {
+  .controller('LoginCtrl', function ($scope, $location, AccountService) {
     
     $scope.fbLogin = function(){
-      $location.path('landing');
+      // $location.path('landing');
+      AccountService.loginFacebook();
     }
     $scope.twitterLogin = function(){
       $location.path('landing');
