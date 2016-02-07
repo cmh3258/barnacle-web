@@ -9,7 +9,7 @@
 angular.module('barnacleApp')
   .directive('writepost', function ($location) {
     return {
-      template: '<div ng-class="size == \'large\'? \'addEntryIconLarge\':\'addEntryIconSmall\'" class="addEntryIcon"></div>',
+      template: '<div class="centerElement"><span ng-class="size == \'large\'? \'addEntryIconLarge\':\'addEntryIconSmall\'" class="addEntryIcon"></span></div>',
       restrict: 'E',
       scope: {
         size:'='

@@ -26,6 +26,14 @@ body {
 
 
 /* Icons */
+    .centerElement{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 8em;
+      width: 8em;
+    }
     .addEntryIcon{
       background: url('../images/addEntry.svg') no-repeat center;
       position: absolute;
@@ -35,8 +43,9 @@ body {
       padding: 1em;
     }
     .addEntryIconLarge{
-      width: 9em;
-      height: 9em;
+      /*width: 9em;*/
+      /*height: 9em;*/
+      padding: 4em;
     }
     .profile-gray{
       background: url('../images/profile-gray.svg') no-repeat center;
