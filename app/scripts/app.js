@@ -57,7 +57,22 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+
+  .run(function (AccountService, $location, $rootScope){
+    // $rootScope.$on('$routeChangeStart', function () {
+      if(AccountService.userLoginStatus() === false){
+        $location.path('/login');
+      }
+      else{
+        var path = $location.url();
+        if(path === '/' || path === '/login'){
+          $location.path('/landing');
+        }
+        console.log('can stay, we logged in.');
+      }  
+    // })
+  })
 
   var PhoneGapInit = function () {
     this.boot = function () {
@@ -77,3 +92,6 @@ angular
   angular.element(document).ready(function() {
     new PhoneGapInit();
   });
+
+
+

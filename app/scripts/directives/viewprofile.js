@@ -14,7 +14,10 @@ angular.module('barnacleApp')
       link: function postLink(scope, element, attrs) {
         // element.text('this is the viewprofile directive');
         element.bind('click', function() {
-          $location.path('/profile');
+          console.log('ckljfdksa');
+          scope.$apply(function(){
+            $location.path('/profile');
+          })
         })
       }
     }

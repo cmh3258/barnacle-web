@@ -12,13 +12,13 @@ body {
 
 /* Buttons */
     .signin-btn{
-      width: 90%;
+      width: 100%;
       margin: 0 auto;
       color: white;
       border:0;
       box-shadow: none;
-      margin: 10px;
-      padding: 3px;
+      margin-bottom: 8px;
+      padding: 11px;
     }
     .facebook-btn{
       background-color: #333396;
@@ -99,6 +99,11 @@ body {
       font-size: 14px;
       margin: 10px;
       margin-left: 5em;
+    }
+    #profile .addEntryIconSmall{
+      bottom: 0;
+      position: absolute;
+      right: 0;
     }
 
 
