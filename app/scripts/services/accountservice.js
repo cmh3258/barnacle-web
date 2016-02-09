@@ -31,6 +31,7 @@ angular.module('barnacleApp')
         if(exists){
           //get user info
           userData = snapshot.val();
+          return true;
         }
         else if(shouldCreate){
           console.log('userData: ', userData);

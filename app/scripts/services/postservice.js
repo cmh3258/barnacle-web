@@ -39,14 +39,15 @@ angular.module('barnacleApp')
       getPosts: function(){
         var defer = $q.defer();
         var getUserid = AccountService.getUserInfo();
+        console.log('getUserid:', getUserid);
 
-        postsRef.on('value', function(snapshot) {
+        postsRef.orderByChild("userId").startAt(getUserid.userId).endAt(getUserid.userId).on('value', function(snapshot) {
           console.log('snapshot: ', snapshot.val());
           if(snapshot.val() !== null){
             defer.resolve(snapshot.val());
           }
           else{
-            defer.reslove(false);
+            defer.resolve(false);
           }
 
         })
