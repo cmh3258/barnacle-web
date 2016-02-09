@@ -8,22 +8,42 @@
  * Factory in the barnacleApp.
  */
 angular.module('barnacleApp')
-  .factory('AccountService', function () {
+  .factory('AccountService', function ($q) {
 
     var ref = new Firebase("https://sweltering-inferno-4461.firebaseio.com");
     var usersRef = ref.child("users");
     var userData = null;
     var loggedIn = false;
 
+    function clearAccountInfo(){
+      loggedIn = false;
+      userData = null; 
+    }
+
     // Tests to see if /users/<userId> has any data. 
-    function checkIfUserExists(userId) {
+    function checkIfUserExists(userId, shouldCreate) {
       console.log('[checkIfUserExists] userId: ', userId);
 
       // var usersRef = new Firebase(usersRef);
-      usersRef.child(userId).once('value', function(snapshot) {
+      return usersRef.child(userId).once('value', function(snapshot) {
         console.log('snapshot: ', snapshot.val());
         var exists = (snapshot.val() !== null);
-        userExistsCallback(userId, exists);
+        if(exists){
+          //get user info
+          userData = snapshot.val();
+        }
+        else if(shouldCreate){
+          console.log('userData: ', userData);
+          var email = 'email' in userData ? userData.email : null;
+          var provider = 'provider' in userData ? userData.provider : 'twitter';
+          usersRef.child(userId).set({userId:userId, displayName:userData.displayName, email:email, provider:provider});
+          loggedIn = true;
+          return true;
+        }
+        else{
+          return false;
+        }
+        // return userExistsCallback(userId, exists);
       });
     }
 
@@ -32,12 +52,17 @@ angular.module('barnacleApp')
         console.log('user ' + userId + ' exists!');
         //do stuff
         loggedIn = true;
-      } 
+        return true;
+      }
+      else if (userData === null){
+        return false;
+      }
       else{
         console.log('user ' + userId + ' does not exist!');
         //create a user in our database
-        usersRef.child(userId).set({userId:userId, displayName:userData.displayName, email:userData.email});
+        usersRef.child(userId).set({userId:userId, displayName:userData.displayName, email:userData.email, provider:userData.provider});
         loggedIn = true;
+        return true;
       }
     }
 
@@ -75,28 +100,63 @@ angular.module('barnacleApp')
     // Public API here
     return {
       loginFacebook: function(){
-        ref.authWithOAuthPopup("facebook", function(error, authData) {
+        return ref.authWithOAuthPopup("facebook", function(error, authData) {
           if (error) {
             console.log("Login Failed!", error);
           } else {
             console.log("Authenticated successfully with payload:", authData);
             var provider = authData.provider;
-            var info = authData[provider];
+            userData = authData[provider];
+
             console.log('provider: ', provider);
-            console.log('info: ', info);
+            console.log('userData: ', userData);
+            // usersRef.child(authData.uid).set({userId:authData.uid, displayName:userData.displayName, email:userData.email});
+            loggedIn = true;
+            return checkIfUserExists(authData.uid, true);
           }
         },{scope: "email"});
       },
+      loginTwitter: function(){
+        return ref.authWithOAuthPopup("twitter", function(error, authData) {
+          if (error) {
+            console.log("Login Failed!", error);
+          } else {
+            console.log("Authenticated successfully with payload:", authData);
+            var provider = authData.provider;
+            userData = authData[provider];
+
+            console.log('provider: ', provider);
+            console.log('userData: ', userData);
+            // usersRef.child(authData.uid).set({userId:authData.uid, displayName:userData.displayName, email:userData.email});
+            loggedIn = true;
+            return checkIfUserExists(authData.uid, true);
+            return true;
+          }
+        });
+      },
       logOut: function(){
-        ref.unauth();
+        var v = ref.unauth();
+        console.log('v: ', v);
+        clearAccountInfo();
+        return true;
       },
       userLoginStatus: function(){
+        var defer = $q.defer();
         var authData = ref.getAuth();
         if (authData) {
           console.log("Authenticated user with uid:", authData.uid);
+          return checkIfUserExists(authData.uid, false);
+        }
+        else{
+          defer.resolve(false);
         }
 
+        return defer.promise;
+
         // return loggedIn;
+      },
+      getUserInfo: function(){
+        return userData;
       }
     };
   });

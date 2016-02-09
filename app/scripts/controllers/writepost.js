@@ -8,7 +8,7 @@
  * Controller of the barnacleApp
  */
 angular.module('barnacleApp')
-  .controller('WritepostCtrl', function ($scope, $location) {
+  .controller('WritepostCtrl', function ($scope, $location, PostService) {
     
     var vm = this;
     vm.writeContenta = '';
@@ -20,6 +20,7 @@ angular.module('barnacleApp')
         console.log('less than 10');
       }
       else{
+        PostService.createPost(vm.currentDate, vm.writeContenta, null);
         $location.path('/addtags');
       }
     }

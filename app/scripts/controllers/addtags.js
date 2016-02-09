@@ -8,10 +8,11 @@
  * Controller of the barnacleApp
  */
 angular.module('barnacleApp')
-  .controller('AddtagsCtrl', function ($scope, $location) {
+  .controller('AddtagsCtrl', function ($scope, $location, PostService) {
     
     $scope.finish = function(){
-      console.log('finish!');
+      // console.log('finish!');
+      PostService.addPost();
       $location.path('/postcomplete');
     }
 

@@ -60,18 +60,25 @@ angular
   })
 
   .run(function (AccountService, $location, $rootScope){
-    // $rootScope.$on('$routeChangeStart', function () {
-      if(AccountService.userLoginStatus() === false){
-        $location.path('/login');
+
+    AccountService.userLoginStatus().then(function(response){
+      console.log('response: ', response, response.val());
+      if(response === false || response.val() == null){
+        $rootScope.$apply(function() {
+          $location.path('/login');
+        })
       }
       else{
         var path = $location.url();
-        if(path === '/' || path === '/login'){
-          $location.path('/landing');
+        if(path === '/' || path === '/login' || path === '/postcomplete'){
+          $rootScope.$apply(function() {
+            $location.path('/landing');
+          })
         }
         console.log('can stay, we logged in.');
-      }  
-    // })
+      }
+    })
+      
   })
 
   var PhoneGapInit = function () {

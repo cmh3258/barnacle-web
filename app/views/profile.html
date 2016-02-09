@@ -1,11 +1,25 @@
 
 <main id="profile">
   <div class="bar bar-header bar-stable">
-    <h2>Posts</h2>
-    <h2>Settings</h2>
+    <h2 ng-click="pageInView = 1">Posts</h2>
+    <h2 ng-click="viewSettings()">Settings</h2>
   </div>
   <ion-content>
-    hi
+    <div class="contentContainer">
+      <div ng-show="pageInView === 1">
+        <div ng-repeat="post in posts" class="singlePost">
+          <h5>{{post.date}}</h5>
+          <p>{{post.content}}</p>
+        </div>
+      </div>
+      <div ng-show="pageInView === 2">
+        <h1>settings</h1>
+        <p>name: {{userInfo.displayName}}</p>
+        <p>email: {{userInfo.email}}</p>
+
+        <button ng-click="logout()">Log Out</button>
+    </div>
+    </div>
   </ion-content>
-  <span class="addEntryIconSmall"></span>
+  <span class="addEntryIconSmall" ng-click="writePost()"></span>
 </profile>

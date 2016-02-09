@@ -13,4 +13,8 @@ angular.module('barnacleApp')
     $scope.writepost = function(){
       $location.path('/writepost');
     }
+
+    $scope.viewPosts = function(){
+      $location.path('/profile');
+    }
   });
