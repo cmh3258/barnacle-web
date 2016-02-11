@@ -8,10 +8,9 @@
  * Controller of the barnacleApp
  */
 angular.module('barnacleApp')
-  .controller('LandingCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LandingCtrl', function ($scope, $location) {
+    
+    $scope.write = function(){
+      $location.path('/writepost');
+    }
   });

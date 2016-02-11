@@ -17,7 +17,7 @@ angular.module('barnacleApp')
       link: function postLink(scope, element, attrs) {
         // element.text('this is the writepost directive');
         element.bind('click', function() {
-          console.log('clikc!');
+          console.log('click!');
           scope.$apply(function(){
             $location.path('/writepost');
           })

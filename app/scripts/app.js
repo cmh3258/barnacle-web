@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ionic',
-    'firebase'
+    'firebase',
+    'monospaced.elastic',
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -54,32 +55,45 @@ angular
         templateUrl: 'views/profile.html',
         controller: 'ProfileCtrl'
       })
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
   })
 
-  .run(function (AccountService, $location, $rootScope){
+  .run(function (AccountService, $location, $rootScope, $ionicPlatform){
 
-    AccountService.userLoginStatus().then(function(response){
-      console.log('response: ', response, response.val());
-      if(response === false || response.val() == null){
-        $rootScope.$apply(function() {
-          $location.path('/login');
-        })
-      }
-      else{
-        var path = $location.url();
-        if(path === '/' || path === '/login' || path === '/postcomplete'){
-          $rootScope.$apply(function() {
-            $location.path('/landing');
-          })
+    $ionicPlatform.ready(function(){
+      console.log('run!');
+      AccountService.userLoginStatus().then(function(response){
+        console.log('login stats?', response);
+        // console.log('response: ', response, response.val());
+        if(response === false || response.val() == null){
+          console.log('trying to go to login');
+          // $rootScope.$apply(function() {
+            console.log('go to login');
+            $location.path('/login');
+          // })
         }
-        console.log('can stay, we logged in.');
-      }
+        else{
+          console.log('here2');
+          var path = $location.url();
+          if(path === '/' || path === '/login' || path === '/postcomplete'){
+            $rootScope.$apply(function() {
+              // $location.path('/landing');
+              $location.path('/main');
+            })
+          }
+          console.log('can stay, we logged in.');
+        }
+      })
     })
+    
       
-  })
+  });
 
   var PhoneGapInit = function () {
     this.boot = function () {
@@ -88,15 +102,20 @@ angular
 
     if (window.phonegap !== undefined) {
       document.addEventListener('deviceready', function() {
+        console.log('1');
         this.boot();
       });
     } else {
+        console.log('2');
+
       console.log('PhoneGap not found, booting Angular manually');
-      this.boot();
+      // this.boot();
     }
   };
 
   angular.element(document).ready(function() {
+        console.log('3');
+
     new PhoneGapInit();
   });
 

@@ -8,13 +8,15 @@
  * Controller of the barnacleApp
  */
 angular.module('barnacleApp')
-  .controller('LoginCtrl', function ($scope, $location, AccountService) {
+  .controller('LoginCtrl', function ($scope, $location, $ionicLoading, AccountService) {
     
     $scope.fbLogin = function(){
+      loadingIndicator(true);
       AccountService.loginFacebook().then(function(response){
+        loadingIndicator(false);
         if(response){
           $scope.$apply(function(){
-            $location.path('/landing');
+            $location.path('/main');
           })
         }
         else{
@@ -23,10 +25,12 @@ angular.module('barnacleApp')
       })
     }
     $scope.twitterLogin = function(){
+      loadingIndicator(true);
       AccountService.loginTwitter().then(function(response){
+        loadingIndicator(false);
         if(response){
           $scope.$apply(function(){
-            $location.path('/landing');
+            $location.path('/main');
           })
         }
         else{
@@ -34,8 +38,23 @@ angular.module('barnacleApp')
         }
       })
     }
-    $scope.tumblrLogin = function(){
-      $location.path('landing');
+    // $scope.tumblrLogin = function(){
+    //   $location.path('landing');
+    // }
+
+    //loading indicator
+    function loadingIndicator(show){
+      if(show){
+        $scope.ionicLoading = $ionicLoading.show({
+          content:'Loading...'
+        });
+      }
+      else{
+        if($scope.ionicLoading !== undefined){
+          // $ionicLoading.hide();
+          $scope.ionicLoading.hide();
+        }
+      }
     }
 
   });

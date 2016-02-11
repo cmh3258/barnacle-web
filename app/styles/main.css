@@ -28,7 +28,8 @@ body {
 /* Icons */
     .centerElement{
       position: absolute;
-      top: 50%;
+      /*top: 50%;*/
+      top: 16em;
       left: 50%;
       transform: translate(-50%, -50%);
       height: 8em;
@@ -55,6 +56,7 @@ body {
       padding: 1em;
       /*padding-top: 0em;*/
       background-size: 16px;
+      padding-top: 0em;
     }
     .profile-orange{
       background: url('../images/profile-orange.svg') no-repeat center;
@@ -77,6 +79,19 @@ body {
 
 
 /* Pages */
+  #landing .addEntryIcon{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: 45%;
+  }
+  textarea{
+    resize: none !important;
+    width: 100%;
+    min-height: 70px;
+  }
   
   /* Post Complete */
     #postComplete{
@@ -106,7 +121,7 @@ body {
       right: 0;
     }
     #profile .scroll-content{
-      margin-top: 50px;
+      /*margin-top: 50px;*/
     }
     .singlePost{
       padding: 1em;
@@ -115,11 +130,13 @@ body {
       color: #B3B3B3;
       font-size: 14px;
     }
-    .singlePost p{
+    .singlePost p,
+    .singlePost pre{
       color: #171717;
       font-size: 16px;
       margin-left: 5px;
     }
+
 
 
 

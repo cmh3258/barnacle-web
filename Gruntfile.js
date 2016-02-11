@@ -346,6 +346,8 @@ module.exports = function (grunt) {
             'styles/fonts/{,*/}*.*',
             'config.xml',
             'res/*',
+            'phonegap.js',
+            'cordova.js',
           ]
         }, {
           expand: true,

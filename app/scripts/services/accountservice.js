@@ -118,7 +118,9 @@ angular.module('barnacleApp')
         },{scope: "email"});
       },
       loginTwitter: function(){
+        console.log('[loginTwitter]');
         return ref.authWithOAuthPopup("twitter", function(error, authData) {
+          console.log('made it back to twitter');
           if (error) {
             console.log("Login Failed!", error);
           } else {
@@ -142,8 +144,11 @@ angular.module('barnacleApp')
         return true;
       },
       userLoginStatus: function(){
+        console.log('userLoginStatus');
         var defer = $q.defer();
         var authData = ref.getAuth();
+        console.log('authData');
+        
         if (authData) {
           console.log("Authenticated user with uid:", authData.uid);
           return checkIfUserExists(authData.uid, false);
