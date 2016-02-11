@@ -14,6 +14,7 @@ angular.module('barnacleApp')
       // link: function postLink(scope, element, attrs) {
       //   element.text('this is the write directive');
       // }
-      controller: 'WritepostCtrl'
+      controller: 'WritepostCtrl',
+      controllerAs: 'vm'
     };
   });
