@@ -15,12 +15,15 @@ angular.module('barnacleApp')
     var post = {};
 
     return {
-      addPost: function(){
+      addPost: function(tags){
+        console.log('tags: ', tags);
         var getUserid = AccountService.getUserInfo();
         post.userId = getUserid.userId;
+        post.tags = tags;
         console.log('push post: ', post);
         postsRef.push(post);
         post = {};
+        AccountService.updateUserTags(tags); //update the users tags
         return;
       },
       createPost: function(date, content, tags){

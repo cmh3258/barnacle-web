@@ -1,14 +1,22 @@
 
 <ion-header-bar>
-  <button class="button button-icon"><viewprofile></viewprofile></button>
-  <h1 class="title">Date</h1>
+  <!-- <button class="button button-icon"><viewprofile></viewprofile></button> -->
+  <h1 class="title">Add Tags</h1>
   <button class="button button-icon continueFlow" ng-click="finish()">finish</button>
 </ion-header-bar>
 
-<ion-content>
+<ion-content id="addtags">
   <main class="contentContainer">
     <!-- <textarea ng-model="vm.writeContenta" placeholder="What's on your mind..."></textarea> -->
-    <h2>Add tags</h2>
-    <input ng-model="customTag" placeholder="insert custom tag..."/>
+    <!-- <h2>Add tags</h2> -->
+
+    <div ng-repeat="tag in tags track by $index" class="tagContainer" ng-click="toggleTag($index)">
+      <span class="selectedTag" ng-if="tag.selected"></span>
+      <h4>{{tag.label}}</h4>
+    </div>
+
+    <form ng-submit="addingTag()">
+      <input ng-model="formInput.customTag" placeholder="insert custom tag...">
+    </form>
   </main>
 </ion-content>

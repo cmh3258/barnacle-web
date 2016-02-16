@@ -20,8 +20,8 @@ angular.module('barnacleApp')
         console.log('less than 10');
       }
       else{
-        PostService.createPost(vm.currentDate, vm.writeContenta, null);
-        $location.path('/addtags');
+        PostService.createPost(vm.currentDate.toISOString(), vm.writeContenta, null);
+        $location.path('/tab/addtags');
       }
     }
 

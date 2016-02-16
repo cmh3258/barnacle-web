@@ -163,6 +163,11 @@ angular.module('barnacleApp')
       },
       getUserInfo: function(){
         return userData;
+      },
+      updateUserTags: function(tags){
+        console.log('adding tags to user profile: ', tags);
+        console.log('userData: ', userData);
+        usersRef.child(userData.userId).update({tags:tags});
       }
     };
   });

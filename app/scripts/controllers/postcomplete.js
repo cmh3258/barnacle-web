@@ -11,10 +11,10 @@ angular.module('barnacleApp')
   .controller('PostcompleteCtrl', function ($scope, $location) {
 
     $scope.writepost = function(){
-      $location.path('/writepost');
+      $location.path('/');
     }
 
     $scope.viewPosts = function(){
-      $location.path('/profile');
+      $location.path('/');
     }
   });

@@ -43,7 +43,7 @@ angular
         controller: 'WritepostCtrl',
         controllerAs: 'vm'
       })
-      .when('/addtags', {
+      .when('/tab/addtags', {
         templateUrl: 'views/addtags.html',
         controller: 'AddtagsCtrl'
       })
