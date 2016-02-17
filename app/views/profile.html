@@ -11,7 +11,7 @@
           <!-- <span ng-class="post.date" -->
           <h5>{{post.date  | date:'medium'}}</h5>
           <pre>{{post.content}}</pre>
-          <p><span ng-repeat="tag in post.tags">{{tag.label}} </span></p>
+          <p><span ng-repeat="tag in post.tags" class="tag">{{tag.label}} </span></p>
         </div>
       <!-- </div>
       <div ng-show="pageInView === 2">

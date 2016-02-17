@@ -71,6 +71,37 @@ body {
       background-size: 5em;
     }
 
+    .posts-gray{
+      background: url('../images/list-gray.svg') no-repeat center;
+      /*padding: 1em;*/
+      background-size: 32px;
+    }
+    .write-gray{
+      background: url('../images/write-gray.svg') no-repeat center;
+      /*padding: 1em;*/
+      background-size: 46px;
+    }
+    .profile-gray{
+      background: url('../images/profile-gray.svg') no-repeat center;
+      /*padding: 1em;*/
+      background-size: 26px;
+    }
+    .posts-blue{
+      background: url('../images/list-blue.svg') no-repeat center;
+      /*padding: 1em;*/
+      background-size: 32px;
+    }
+    .write-blue{
+      background: url('../images/write-blue.svg') no-repeat center;
+      /*padding: 1em;*/
+      background-size: 46px;
+    }
+    .profile-blue{
+      background: url('../images/profile-blue.svg') no-repeat center;
+      /*padding: 1em;*/
+      background-size: 26px;
+    }
+
 
 .contentContainer{
   margin: 10px;
@@ -81,11 +112,14 @@ body {
 
 
 .tabs-positive > .tabs{
-  background-color: #4C4C4C;
-  border-color: #4C4C4C;
+  background-color: #A7A7A7;
+  border-color: #A7A7A7;
 }
 .tab-title{
   color:gray;
+}
+.tab-item .icon{
+  margin-top: 6px;
 }
 
 /* Pages */

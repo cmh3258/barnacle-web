@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="468px" height="319px" viewBox="0 0 468 319" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>list</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-10" sketch:type="MSArtboardGroup" transform="translate(-1896.000000, -880.000000)" fill="#2C5481">
+            <path d="M1896,926.002136 C1896,900.595858 1916.5994,880 1941.99356,880 L2318.00644,880 C2343.40798,880 2364,900.592841 2364,926.002136 L2364,1152.99786 C2364,1178.40414 2343.4006,1199 2318.00644,1199 L1941.99356,1199 C1916.59202,1199 1896,1178.40716 1896,1152.99786 L1896,926.002136 Z M1936.5,1008 L1937,1131.5 L1958.5,1159.5 L2111,1159.5 L1936.5,1008 Z" id="list" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
