@@ -13,7 +13,7 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
+    // 'ngRoute',
     'ngSanitize',
     'ngTouch',
     'ionic',
@@ -30,8 +30,57 @@ angular
       //   templateUrl: "views/profile.html"
       // })
 
+  $urlRouterProvider.otherwise('/')
+
+
+  $stateProvider.state('home', {
+    url: '/home',
+    views: {
+      home: {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl'
+      }
+    }
+  })
+
+  $stateProvider.state('write', {
+    url: '/write',
+    views: {
+      write: {
+        templateUrl: 'views/writepost.html',
+        controller: 'WritepostCtrl'
+      }
+    }
+  })
+
+  $stateProvider.state('addtags', {
+    url: '/addtags',
+    views: {
+      write: {
+        templateUrl: 'views/addtags.html',
+        controller: 'AddtagsCtrl'
+      }
+    }
+  })
+
+  $stateProvider.state('settings', {
+    url: '/settings',
+    views: {
+      settings: {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
+      }
+    }
+  })
+      /*.state('tab', {
+        url: "/",
+        abstract: true,
+        templateUrl: "about.html"
+      })
+
       .state('tab.home', {
         url: '/home',
+        abstract: true,
           views: {
             'tab-home': {
               templateUrl: 'views/profile.html',
@@ -42,6 +91,7 @@ angular
 
       .state('tab.write', {
         url: '/write',
+        abstract: true,
           views: {
             'tab-write': {
               templateUrl: 'views/writepost.html',
@@ -51,15 +101,27 @@ angular
           }
         })
 
+      .state('tab.addtags', {
+        url: '/addtags',
+        abstract: true,
+          views: {
+            'tab-write': {
+              templateUrl: 'views/addtags.html',
+              controller: 'AddtagsCtrl'
+            }
+          }
+        })
+
       .state('tab.profile', {
         url: '/profile',
+        abstract: true,
           views: {
             'tab-profile': {
               templateUrl: 'views/settings.html',
               controller: 'SettingsCtrl'
             }
           }
-        })
+        })*/
 
     /*$routeProvider
       // .when('/', {
@@ -103,7 +165,7 @@ angular
         redirectTo: '/'
       });  */
 
-     $urlRouterProvider.otherwise("/tab/home");
+     // $urlRouterProvider.otherwise("/tab/home");
 
     })
 

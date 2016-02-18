@@ -49,28 +49,39 @@
     <div class="">
     <!-- <div ng-view=""></div> -->
 
-      <ion-tabs class="tabs-positive tabs-icon-top">
+      <ion-tabs class="tabs-positive">
+        <ion-tab icon-on="posts-blue" icon-off="posts-gray" ui-sref="home">
+          <ion-nav-view name="home"></ion-nav-view>
+        </ion-tab>
+        <ion-tab icon-on="write-blue" icon-off="write-gray" ui-sref="write">
+          <ion-nav-view name="write"></ion-nav-view>
+        </ion-tab>
+        <ion-tab icon-on="profile-blue" icon-off="profile-gray" ui-sref="settings">
+          <ion-nav-view name="settings"></ion-nav-view>
+        </ion-tab>
+      </ion-tabs>
 
-        <ion-tab icon-on="posts-blue" icon-off="posts-gray" href="#/tab/home">
+      <!-- <ion-tabs class="tabs-positive tabs-icon-top">
+
+        <ion-tab icon-on="posts-blue" icon-off="posts-gray" ui-sref="tab/home">
           <ion-nav-view name="tab-home">
-          <!-- <h1>hi</h1> -->
             <profile></profile>
           </ion-nav-view>
         </ion-tab>
 
-        <ion-tab icon-on="write-blue" icon-off="write-gray" href="#/tab/write">
+        <ion-tab icon-on="write-blue" icon-off="write-gray" ui-sref="tab/write">
           <ion-nav-view name="tab-write">
             <write></write>
           </ion-nav-view>
         </ion-tab>
 
-        <ion-tab icon-on="profile-blue" icon-off="profile-gray" href="#/tab/profile">
+        <ion-tab icon-on="profile-blue" icon-off="profile-gray" ui-sref="tab/profile">
           <ion-nav-view name="tab-profile">
             <settings></settings>
           </ion-nav-view>
         </ion-tab>
 
-      </ion-tabs>
+      </ion-tabs> -->
     </div>
 
     <!-- <div class="footer">

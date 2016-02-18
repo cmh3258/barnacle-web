@@ -10,18 +10,18 @@
 angular.module('barnacleApp')
   .controller('WritepostCtrl', function ($scope, $location, PostService) {
     
-    var vm = this;
-    vm.writeContenta = '';
-    vm.currentDate = new Date();
+    // var vm = this;
+    $scope.content = {writeContenta:''};
+    $scope.currentDate = new Date();
 
     $scope.selectCategory = function(content){
-      console.log('content: ', content, vm.writeContenta);
+      console.log('content: ', content, $scope.writeContenta);
       if(content.length < 10){
         console.log('less than 10');
       }
       else{
-        PostService.createPost(vm.currentDate.toISOString(), vm.writeContenta, null);
-        $location.path('/tab/addtags');
+        PostService.createPost($scope.currentDate.toISOString(), $scope.writeContenta, null);
+        $location.path('/addtags');
       }
     }
 

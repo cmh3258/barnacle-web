@@ -1,15 +1,14 @@
 <ion-view>
-
 <ion-header-bar>
   <!-- <viewprofile></viewprofile> -->
   <h1 class="title"></h1>
-  <button class="button button-icon" ng-click="selectCategory(vm.writeContenta)" ng-disabled="vm.writeContenta.length < 10" ng-class="vm.writeContenta.length >= 10 ? 'continueFlow':''">done</button>
+  <button class="button button-icon" ng-click="selectCategory(content.writeContenta)" ng-disabled="content.writeContenta.length < 10" ng-class="content.writeContenta.length >= 10 ? 'continueFlow':''">done</button>
 </ion-header-bar>
 
 <ion-content>
   <main class="contentContainer">
-    <h4>{{vm.currentDate | date:'medium'}}</h4>
-    <textarea msd-elastic ng-model="vm.writeContenta" placeholder="What's on your mind..."></textarea>
+    <h4>{{currentDate | date:'medium'}}</h4>
+    <textarea msd-elastic ng-model="content.writeContenta" placeholder="What's on your mind..."></textarea>
   </main>
 </ion-content>
 
