@@ -13,6 +13,7 @@ angular.module('barnacleApp')
     // $scope.pageInView = 1;
     // $scope.userInfo = null;
     $scope.posts = [];
+    console.log('[]ProfileCtrl here?');
 
     PostService.getPosts().then(function(response){
       // $scope.posts = response;

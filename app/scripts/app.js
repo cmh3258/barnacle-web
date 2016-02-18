@@ -19,17 +19,57 @@ angular
     'ionic',
     'firebase',
     'monospaced.elastic',
+    // 'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
+  .config(function ($urlRouterProvider, $stateProvider) {
+
+    $stateProvider
+      // .state('tab', {
+      //   url: "/tab",
+      //   abstract: true,
+      //   templateUrl: "views/profile.html"
+      // })
+
+      .state('tab.home', {
+        url: '/home',
+          views: {
+            'tab-home': {
+              templateUrl: 'views/profile.html',
+              controller: 'ProfileCtrl'
+            }
+          }
+        })
+
+      .state('tab.write', {
+        url: '/write',
+          views: {
+            'tab-write': {
+              templateUrl: 'views/writepost.html',
+              controller: 'WritepostCtrl',
+              controllerAs: 'vm'
+            }
+          }
+        })
+
+      .state('tab.profile', {
+        url: '/profile',
+          views: {
+            'tab-profile': {
+              templateUrl: 'views/settings.html',
+              controller: 'SettingsCtrl'
+            }
+          }
+        })
+
+    /*$routeProvider
+      // .when('/', {
+      //   templateUrl: 'views/main.html',
+      //   controller: 'MainCtrl'
+      // })
+      // .when('/about', {
+      //   templateUrl: 'views/about.html',
+      //   controller: 'AboutCtrl'
+      // })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
@@ -61,8 +101,11 @@ angular
       })
       .otherwise({
         redirectTo: '/'
-      });
-  })
+      });  */
+
+     $urlRouterProvider.otherwise("/tab/home");
+
+    })
 
   .run(function (AccountService, $location, $rootScope, $ionicPlatform){
 
