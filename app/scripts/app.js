@@ -33,7 +33,7 @@ angular
   $urlRouterProvider.otherwise('/')
 
 
-  $stateProvider.state('home', {
+  $stateProvider.state('main.home', {
     url: '/home',
     views: {
       home: {
@@ -43,7 +43,7 @@ angular
     }
   })
 
-  $stateProvider.state('write', {
+  $stateProvider.state('main.write', {
     url: '/write',
     views: {
       write: {
@@ -53,7 +53,7 @@ angular
     }
   })
 
-  $stateProvider.state('addtags', {
+  $stateProvider.state('main.addtags', {
     url: '/addtags',
     views: {
       write: {
@@ -63,12 +63,32 @@ angular
     }
   })
 
-  $stateProvider.state('settings', {
+  $stateProvider.state('main.settings', {
     url: '/settings',
     views: {
       settings: {
         templateUrl: 'views/settings.html',
         controller: 'SettingsCtrl'
+      }
+    }
+  })
+
+  $stateProvider.state('login', {
+    url: '/login',
+    views: {
+      login: {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      }
+    }
+  })
+
+  $stateProvider.state('main', {
+    url: '/main',
+    views: {
+      main: {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
       }
     }
   })

@@ -1,22 +1,12 @@
 
-<ion-tabs class="tabs-positive tabs-icon-top">
-
-  <ion-tab icon-on="posts-blue" icon-off="posts-gray" href="#/tab/home">
-    <ion-nav-view name="tab-home">
-      <!-- <profile></profile> -->
-    </ion-nav-view>
+<ion-tabs class="tabs-positive">
+  <ion-tab icon-on="posts-blue" icon-off="posts-gray" ui-sref="main.home">
+    <ion-nav-view name="home"></ion-nav-view>
   </ion-tab>
-
-  <ion-tab icon-on="write-blue" icon-off="write-gray" href="#/tab/write">
-    <ion-nav-view name="tab-write">
-      <!-- <write></write> -->
-    </ion-nav-view>
+  <ion-tab icon-on="write-blue" icon-off="write-gray" ui-sref="main.write">
+    <ion-nav-view name="write"></ion-nav-view>
   </ion-tab>
-
-  <ion-tab icon-on="profile-blue" icon-off="profile-gray" href="#/tab/profile">
-    <ion-nav-view name="tab-profile">
-      <!-- <settings></settings> -->
-    </ion-nav-view>
+  <ion-tab icon-on="profile-blue" icon-off="profile-gray" ui-sref="main.settings">
+    <ion-nav-view name="settings"></ion-nav-view>
   </ion-tab>
-
 </ion-tabs>
