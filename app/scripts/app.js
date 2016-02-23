@@ -209,7 +209,7 @@ angular
           if(path === '/' || path === '/login' || path === '/postcomplete'){
             $rootScope.$apply(function() {
               // $location.path('/landing');
-              $location.path('/main');
+              $location.path('/main/home');
             })
           }
           console.log('can stay, we logged in.');
