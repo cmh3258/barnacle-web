@@ -136,7 +136,7 @@ body {
     width: 100%;
     min-height: 70px;
     font-size: 16px;
-    font-family: Ubuntu;
+    font-family: Lora;
     line-height: 24px;
   }
   
@@ -168,6 +168,7 @@ body {
     }
 
   /* Profile */
+    #postsContainer{}
     #profile .bar h2{
       display: inline-block;
       font-size: 14px;
@@ -330,6 +331,26 @@ body {
         -webkit-transform: rotate(360deg);
       }
     }
+
+@media (min-width: 1200px){
+  #postsContainer{
+    width: 70%;
+    margin:0 auto;
+  }
+  #writeContainer{
+    width: 50%;
+    margin:0 auto; 
+  }
+    #writeContainer textarea{
+      font-size: 22px;
+      line-height: 32px;
+    }
+    #writeContainer h4{
+      color: #E4E4E4;
+      margin-top:2em;
+    }
+
+}
 
 
 
