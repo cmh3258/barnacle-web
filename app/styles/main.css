@@ -349,6 +349,13 @@ body {
       color: #E4E4E4;
       margin-top:2em;
     }
+  #addtags{
+    width: 50%;
+    margin:0 auto; 
+  }
+  #postComplete{
+    margin-top: 3em;
+  }
 
 }
 

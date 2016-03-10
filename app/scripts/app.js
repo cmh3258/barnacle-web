@@ -63,6 +63,16 @@ angular
     }
   })
 
+  $stateProvider.state('main.postcomplete', {
+    url: '/postcomplete',
+    views: {
+      write: {
+        templateUrl: 'views/postcomplete.html',
+        controller: 'PostcompleteCtrl'
+      }
+    }
+  })
+
   $stateProvider.state('main.settings', {
     url: '/settings',
     views: {
@@ -92,6 +102,7 @@ angular
       }
     }
   })
+
       /*.state('tab', {
         url: "/",
         abstract: true,

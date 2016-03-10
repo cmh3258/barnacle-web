@@ -15,13 +15,13 @@ angular.module('barnacleApp')
     $scope.currentDate = new Date();
 
     $scope.selectCategory = function(content){
-      console.log('content: ', content, $scope.writeContenta);
+      console.log('content: ', content);
       if(content.length < 10){
         console.log('less than 10');
       }
       else{
-        PostService.createPost($scope.currentDate.toISOString(), $scope.writeContenta, null);
-        $location.path('/addtags');
+        PostService.createPost($scope.currentDate.toISOString(), content, null);
+        $location.path('/main/addtags');
       }
     }
 

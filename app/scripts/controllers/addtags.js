@@ -16,7 +16,7 @@ angular.module('barnacleApp')
     $scope.finish = function(){
       // console.log('finish!');
       PostService.addPost($scope.tags);
-      $location.path('/postcomplete');
+      $location.path('/main/postcomplete');
     }
 
     $scope.addingTag = function(){
