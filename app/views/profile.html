@@ -12,15 +12,15 @@
           <!-- <span ng-class="post.date" -->
           <!-- <h5>{{post.date  | date:'medium'}}</h5> -->
           <div class="leftPostInfo">
-            <h5>{{post.date | date:'EEEE'}}</h5>
             <h3>{{post.date | date:'d'}}</h3>
+            <h6>{{post.date | date: 'yyyy'}}</h6>
           </div>
           <div class="rightPostInfo">
-            <h4>{{post.date | date:'h:mma'}}</h4>
+            <h4>{{post.date | date:'EEE h:mma'}}</h4>
             <div class="postPreviewContainer">
               <pre>{{post.content}}</pre>
               <!-- <hr ng-if="post.tags" class="partialHr"> -->
-              <p><span ng-repeat="tag in post.tags" class="tag">{{tag.label}} </span></p>
+              <p><span ng-repeat="tag in post.tags" class="tag">{{tag.label}}<span ng-if="post.tags.length > 1 && $index < post.tags.length - 1">, </span></span></p>
             </div>
           </div>
         </div>
@@ -38,4 +38,4 @@
 </main>
 <!-- </ion-content> -->
 
-<!-- </ion-view>
+<!-- </ion-view>-->
