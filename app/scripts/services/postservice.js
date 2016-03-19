@@ -43,20 +43,22 @@ angular.module('barnacleApp')
         var defer = $q.defer();
         var getUserid = AccountService.getUserInfo();
         console.log('getUserid:', getUserid);
-
-        postsRef.orderByChild("userId").startAt(getUserid.userId).endAt(getUserid.userId).limitToLast(30).on('value', function(snapshot) {
-          console.log('snapshot: ', snapshot.val());
-          if(snapshot.val() !== null){
-            defer.resolve(snapshot.val());
-          }
-          else{
-            defer.resolve(false);
-          }
-
-        })
-
+        if(getUserid === null){
+          defer.resolve(false);;
+        }
+        else{
+          //get posts by user id
+          postsRef.orderByChild("userId").startAt(getUserid.userId).endAt(getUserid.userId).limitToLast(30).on('value', function(snapshot) {
+            console.log('snapshot: ', snapshot.val());
+            if(snapshot.val() !== null){
+              defer.resolve(snapshot.val());
+            }
+            else{
+              defer.resolve(false);
+            }
+          })
+        }
         return defer.promise;
-
       }
     };
   });

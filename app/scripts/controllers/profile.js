@@ -8,21 +8,27 @@
  * Controller of the barnacleApp
  */
 angular.module('barnacleApp')
-  .controller('ProfileCtrl', function ($scope, PostService) {
+  .controller('ProfileCtrl', function ($scope, $ionicLoading, PostService) {
 
     // $scope.pageInView = 1;
     // $scope.userInfo = null;
     $scope.posts = [];
-    console.log('[]ProfileCtrl here?');
+    console.log('[ProfileCtrl] here?');
 
-    PostService.getPosts().then(function(response){
-      // $scope.posts = response;
-      for(var key in response){
-        console.log('key: ', key, response[key]);
-        $scope.posts.push(response[key]);
-      }
-      console.log($scope.posts);
-    })
+    initial();
+
+    function initial(){
+      loadingInicator(true);
+      PostService.getPosts().then(function(response){
+        // $scope.posts = response;
+        for(var key in response){
+          console.log('key: ', key, response[key]);
+          $scope.posts.push(response[key]);
+        }
+        // console.log($scope.posts);
+        loadingInicator(false);
+      })
+    }
     
     // $scope.logout = function(){
     //   AccountService.logOut();
@@ -38,5 +44,17 @@ angular.module('barnacleApp')
     // $scope.writePost = function(){
     //   $location.path('/writepost');
     // }
+
+    function loadingInicator(shouldShow){
+      if(shouldShow){
+        $scope.ionicLoading = $ionicLoading.show({
+          content: 'Loading...'
+        });
+      }
+      else{
+        $scope.ionicLoading.hide();
+      }
+    }
+    
 
   });

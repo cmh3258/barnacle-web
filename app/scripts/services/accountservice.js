@@ -133,7 +133,7 @@ angular.module('barnacleApp')
             // usersRef.child(authData.uid).set({userId:authData.uid, displayName:userData.displayName, email:userData.email});
             loggedIn = true;
             return checkIfUserExists(authData.uid, true);
-            return true;
+            // return true;
           }
         });
       },
@@ -167,7 +167,14 @@ angular.module('barnacleApp')
       updateUserTags: function(tags){
         console.log('adding tags to user profile: ', tags);
         console.log('userData: ', userData);
-        usersRef.child(userData.userId).update({tags:tags});
+        var otherTags = userData.tags;
+        var currentTags = otherTags;
+        for(var i = 0; i < tags.length; i++){
+          currentTags[tags[i].label] = true;
+        }
+        // console.log('currentTags: ', currentTags);
+        // otherTags.pus
+        usersRef.child(userData.userId).update({tags:currentTags});
       }
     };
   });

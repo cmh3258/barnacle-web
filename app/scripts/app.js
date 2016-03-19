@@ -202,10 +202,15 @@ angular
 
   .run(function (AccountService, $location, $rootScope, $ionicPlatform){
 
-    $ionicPlatform.ready(function(){
-      console.log('run!');
+    // $ionicPlatform.ready(function(){
+      console.log('run!', $location.path());
+      if($location.path() === '/main/home'){
+        console.log('here');
+        $location.path('/main/write');
+      }
+
       AccountService.userLoginStatus().then(function(response){
-        console.log('login stats?', response);
+        // console.log('login stats?', response);
         // console.log('response: ', response, response.val());
         if(response === false || response.val() == null){
           console.log('trying to go to login');
@@ -220,15 +225,13 @@ angular
           if(path === '/' || path === '/login' || path === '/postcomplete'){
             $rootScope.$apply(function() {
               // $location.path('/landing');
-              $location.path('/main/home');
+              $location.path('/main/write');
             })
           }
           console.log('can stay, we logged in.');
         }
       })
-    })
-    
-      
+    // })  
   });
 
   var PhoneGapInit = function () {
@@ -238,20 +241,15 @@ angular
 
     if (window.phonegap !== undefined) {
       document.addEventListener('deviceready', function() {
-        console.log('1');
         this.boot();
       });
     } else {
-        console.log('2');
-
       console.log('PhoneGap not found, booting Angular manually');
       // this.boot();
     }
   };
 
   angular.element(document).ready(function() {
-        console.log('3');
-
     new PhoneGapInit();
   });
 

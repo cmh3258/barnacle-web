@@ -8,10 +8,19 @@
  * Controller of the barnacleApp
  */
 angular.module('barnacleApp')
-  .controller('AddtagsCtrl', function ($scope, $location, PostService) {
+  .controller('AddtagsCtrl', function ($scope, $location, PostService, AccountService) {
     
     $scope.tags = []; //get the users saved tags
     $scope.formInput = {};
+    $scope.userTags = null;
+
+    initial();
+    
+    function initial(){
+      var userData = AccountService.getUserInfo();
+      $scope.userTags = userData.tags;
+      console.log('$scope.userTags: ', $scope.userTags);
+    }
 
     $scope.finish = function(){
       // console.log('finish!');
