@@ -232,7 +232,7 @@ p,li,a{
       right: 0;
     }
     #profile .scroll-content{
-      /*margin-top: 50px;*/
+      margin-top: 50px;
     }
     .singlePost{
       padding: 6px;
@@ -392,6 +392,30 @@ p,li,a{
     }
 
 @media (min-width: 1200px){
+  .bar .title{
+    left: 0;
+    right: initial;
+  }
+  .bar .bar-header,
+  .bar-header{
+    border-bottom: 0;
+  }
+
+  /* */
+  .tabs{
+    display: block;
+  }
+  .tabs-positive > .tabs{
+    background-color: initial;
+    border:0;
+    top: initial;
+    bottom: initial;
+    margin-top: 7em;
+  }
+  .tabs a{
+    height: 8em;
+  }
+
   #postsContainer{
     width: 53%;
     margin:0 auto;
@@ -414,6 +438,10 @@ p,li,a{
   }
   #postComplete{
     margin-top: 3em;
+  }
+
+  #settings{
+    margin-left: 10em;
   }
 
 }

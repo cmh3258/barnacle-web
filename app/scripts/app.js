@@ -33,10 +33,10 @@ angular
   $urlRouterProvider.otherwise('/')
 
 
-  $stateProvider.state('main.home', {
-    url: '/home',
+  $stateProvider.state('main.feed', {
+    url: '/feed',
     views: {
-      home: {
+      feed: {
         templateUrl: 'views/profile.html',
         controller: 'ProfileCtrl'
       }
@@ -102,6 +102,17 @@ angular
       }
     }
   })
+
+  $stateProvider.state('post', {
+    url: '/post',
+    views: {
+      post: {
+        templateUrl: 'views/post.html',
+        controller: 'PostCtrl'
+      }
+    }
+  })
+
 
       /*.state('tab', {
         url: "/",
@@ -196,6 +207,10 @@ angular
         redirectTo: '/'
       });  */
 
+     // .when('/post', {
+     //   templateUrl: 'views/post.html',
+     //   controller: 'PostCtrl'
+     // })
      // $urlRouterProvider.otherwise("/tab/home");
 
     })
@@ -204,7 +219,7 @@ angular
 
     // $ionicPlatform.ready(function(){
       console.log('run!', $location.path());
-      if($location.path() === '/main/home'){
+      if($location.path() === '/main/feed'){
         console.log('here');
         $location.path('/main/write');
       }

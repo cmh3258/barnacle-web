@@ -59,6 +59,14 @@ angular.module('barnacleApp')
           })
         }
         return defer.promise;
+      },
+      getSinglePost: function(id){
+        //can I just do postsRef.child(postId)?
+        var v = postsRef.child(id);
+        v.once('value', function(h){
+          console.log(h.val());
+        })
+
       }
     };
   });
