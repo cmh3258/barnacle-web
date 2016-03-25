@@ -1,9 +1,12 @@
 <ion-view>
-<ion-header-bar>
-  <!-- <viewprofile></viewprofile> -->
-  <h1 class="title"></h1>
+  <div class="bar bar-header bar-light">
+    <h1 class="title">rigraf</h1>
+    <button class="button button-icon" ng-click="selectCategory(content.writeContenta)" ng-disabled="content.writeContenta.length < 10" ng-class="content.writeContenta.length >= 10 ? 'continueFlow':''">next</button>
+  </div>
+<!--<ion-header-bar>
+  <h1 class="title">rigraf</h1>
   <button class="button button-icon" ng-click="selectCategory(content.writeContenta)" ng-disabled="content.writeContenta.length < 10" ng-class="content.writeContenta.length >= 10 ? 'continueFlow':''">next</button>
-</ion-header-bar>
+</ion-header-bar>-->
 
 <ion-content>
   <main class="contentContainer" id="writeContainer">

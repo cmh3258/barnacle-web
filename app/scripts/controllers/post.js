@@ -9,11 +9,11 @@
  */
 angular.module('barnacleApp')
   .controller('PostCtrl', function ($scope, PostService) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
-    PostService.getSinglePost('-KA2XU1AHXcuOiywI8vR');
+    $scope.post = {};
+    PostService.getSinglePost('-KA2XU1AHXcuOiywI8vR').then(function(response){
+      // console.log('response: ', response.val());
+      $scope.post = response;
+      console.log($scope.post);
+    })
   });

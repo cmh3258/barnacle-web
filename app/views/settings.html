@@ -1,11 +1,17 @@
-<ion-view id="settings">
+<ion-view>
+  
+  <div class="bar bar-header bar-light">
+    <h1 class="title">rigraf</h1>
+  </div>
 
-  <main class="contentContainer">
-    <h1>settings</h1>
-    <p>name: {{userInfo.displayName}}</p>
-    <p>email: {{userInfo.email}}</p>
+  <ion-content id="settings">
+    <main class="contentContainer">
+      <h1>settings</h1>
+      <p>name: {{userInfo.displayName}}</p>
+      <p>email: {{userInfo.email}}</p>
 
-    <button ng-click="logout()">Log Out</button>
-  </main>
+      <button ng-click="logout()">Log Out</button>
+    </main>
+  </ion-content>
 
 </ion-view>

@@ -31,7 +31,7 @@ p,li,a{
 .title{
   font-family: Cabin, sans-serif;
   font-weight: 600;
-  font-style: italic;
+  /*font-style: italic;*/
   color: #441369; 
   font-size: 16px;
 }
@@ -189,6 +189,12 @@ p,li,a{
     font-family: Lora;
     line-height: 24px;
   }
+  #writeContainer input{
+    font-family: Lora;
+    padding: 8px 0;
+    border: 0;
+    font-size: 26px;
+  }
   
   /* Post Complete */
     #postComplete{
@@ -311,14 +317,29 @@ p,li,a{
 
   /* addtags */
   #addtags input{
-    padding: 10px;
-    border: 1px solid black;
+    font-family: Droid Sans;
+    font-size: 20px;
+    border: 0px;
+    border-bottom: 2px solid black;
+    margin-bottom: 2em;
+  }
+  #addtags form div{
+    /*position: relative;*/
+  }
+  .inputHelperText{
+    position: absolute;
+    right: 0;
+    color: #CCCCCC;
+    margin-top: -63px;
+    font-size: 12px;
+    font-family: Lora;
   }
   .tagContainer{
     padding: 2px;
   }
   .tagContainer h4{
     margin-left:17px;
+    cursor: pointer;
   }
 
   .selectedTag{
@@ -328,6 +349,13 @@ p,li,a{
     border-radius: 100%;
     position: absolute;
     margin-top: 15px;
+  }
+  .backBtn{
+    margin-top: 3em;
+    color: #3C0F3C;
+    text-decoration: underline;
+    font-family: Ubuntu;
+    cursor: pointer;
   }
 
 
@@ -395,6 +423,8 @@ p,li,a{
   .bar .title{
     left: 0;
     right: initial;
+    font-size: 22px;
+
   }
   .bar .bar-header,
   .bar-header{
@@ -411,6 +441,7 @@ p,li,a{
     top: initial;
     bottom: initial;
     margin-top: 7em;
+    width: 20em;
   }
   .tabs a{
     height: 8em;
@@ -423,6 +454,7 @@ p,li,a{
   #writeContainer{
     width: 50%;
     margin:0 auto; 
+    margin-top: 7em;
   }
     #writeContainer textarea{
       font-size: 22px;
@@ -435,6 +467,10 @@ p,li,a{
   #addtags{
     width: 50%;
     margin:0 auto; 
+  }
+  #addtags h2{
+    margin-bottom: 3em;
+    text-align: center;
   }
   #postComplete{
     margin-top: 3em;

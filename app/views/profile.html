@@ -3,7 +3,7 @@
 <main id="profile">
   <div class="bar bar-header bar-light">
     <!-- <span class="logo">Reflect Simple</span> -->
-    <h1 class="title">Reflect Simple</h1>
+    <h1 class="title">rigraf</h1>
   </div>
   <!-- <div class="bar bar-header bar-stable">
     <h2 ng-click="pageInView = 1">Posts</h2>
@@ -22,6 +22,7 @@
           <div class="rightPostInfo">
             <h4>{{post.date | date:'EEE h:mma'}}</h4>
             <div class="postPreviewContainer">
+              <h3>{{post.title}}</h3>
               <pre>{{post.content}}</pre>
               <!-- <hr ng-if="post.tags" class="partialHr"> -->
               <p><span ng-repeat="tag in post.tags" class="tag">{{tag.label}}<span ng-if="post.tags.length > 1 && $index < post.tags.length - 1">, </span></span></p>

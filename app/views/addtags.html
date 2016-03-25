@@ -1,12 +1,17 @@
 
-<ion-header-bar>
-  <!-- <button class="button button-icon"><viewprofile></viewprofile></button> -->
+<!-- <ion-header-bar>
   <h1 class="title">Add Tags</h1>
   <button class="button button-icon continueFlow" ng-click="finish()">finish</button>
-</ion-header-bar>
+</ion-header-bar> -->
+
+  <div class="bar bar-header bar-light">
+    <h1 class="title">rigraf</h1>
+    <button class="button button-icon continueFlow" ng-click="finish()">finish</button>
+  </div>
 
 <ion-content id="addtags">
   <main class="contentContainer">
+    <h2>Add Tags</h2>
     <!-- <textarea ng-model="vm.writeContenta" placeholder="What's on your mind..."></textarea> -->
     <!-- <h2>Add tags</h2> -->
 
@@ -16,7 +21,22 @@
     </div>
 
     <form ng-submit="addingTag()">
-      <input ng-model="formInput.customTag" placeholder="insert custom tag...">
+      <div>
+        <input ng-model="formInput.customTag" placeholder="insert custom tag...">
+        <span class="inputHelperText">must press 'enter'</span>
+      </div>
     </form>
+
+    <h4 ng-if="userTitle !== null">{{userTitle}}</h4>
+    <form ng-submit="addingTitle()">
+      <div>
+        <input placeholder="Title" ng-model="formInput.titleOfPost"/>
+        <span class="inputHelperText">must press 'enter'</span>
+      </div>
+    </form>
+
+
+    <p ng-click="back()" class="backBtn">back to writing</p>
+
   </main>
 </ion-content>

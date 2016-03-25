@@ -15,12 +15,17 @@ angular.module('barnacleApp')
     var post = {};
 
     return {
-      addPost: function(tags){
+      addPost: function(tags, title){
         console.log('tags: ', tags);
+        console.log('title: ', title);
+
         var getUserid = AccountService.getUserInfo();
         post.userId = getUserid.userId;
         post.tags = tags;
-        console.log('push post: ', post);
+        // console.log('push post: ', post);
+        if(title !== undefined){
+          post.title = title;
+        }
         postsRef.push(post);
         post = {};
         AccountService.updateUserTags(tags); //update the users tags
@@ -62,10 +67,14 @@ angular.module('barnacleApp')
       },
       getSinglePost: function(id){
         //can I just do postsRef.child(postId)?
+        var defer = $q.defer();
+
         var v = postsRef.child(id);
         v.once('value', function(h){
-          console.log(h.val());
+          defer.resolve(h.val());
         })
+
+        return defer.promise;
 
       }
     };

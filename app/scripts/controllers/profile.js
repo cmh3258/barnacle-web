@@ -13,7 +13,7 @@ angular.module('barnacleApp')
     // $scope.pageInView = 1;
     // $scope.userInfo = null;
     $scope.posts = [];
-    console.log('[ProfileCtrl] here?');
+    // console.log('[ProfileCtrl] here?');
 
     initial();
 

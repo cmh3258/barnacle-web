@@ -13,18 +13,24 @@ angular.module('barnacleApp')
     $scope.tags = []; //get the users saved tags
     $scope.formInput = {};
     $scope.userTags = null;
+    $scope.userTitle = null;
 
     initial();
     
     function initial(){
       var userData = AccountService.getUserInfo();
-      $scope.userTags = userData.tags;
-      console.log('$scope.userTags: ', $scope.userTags);
+      if(userData === null){
+        $location.path('/main/write');
+      }
+      else{
+        $scope.userTags = userData.tags;
+        console.log('$scope.userTags: ', $scope.userTags);
+      }
     }
 
     $scope.finish = function(){
       // console.log('finish!');
-      PostService.addPost($scope.tags);
+      PostService.addPost($scope.tags, $scope.userTitle);
       $location.path('/main/postcomplete');
     }
 
@@ -36,9 +42,21 @@ angular.module('barnacleApp')
       }
     }
 
+    $scope.addingTitle = function(){
+      var title = $scope.formInput.titleOfPost;
+      if(title !== ''){
+        $scope.userTitle = title;
+      }
+      $scope.formInput.titleOfPost = '';
+    }
+
     $scope.toggleTag = function(index){
       // $scope.tags.splice(index, 1);
       $scope.tags[index].selected = !$scope.tags[index].selected;
+    }
+
+    $scope.back = function(){
+      $location.path('/main/write');
     }
 
   });
